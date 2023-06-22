@@ -49,7 +49,8 @@ const options = {
     if (selectedDates[0] > new Date()) {
       startBtn.disabled = false;
     } else {
-      startBtn.disabled = true;
+        startBtn.disabled = true;
+        window.alert('Please choose a date in the future');
     }
   },
 };
@@ -65,7 +66,6 @@ function startTimer() {
   if (ms < 1000) {
     clearInterval(intervalId);
   }
-  console.log(timeValue);
 }
 
 function updateTimer() {
