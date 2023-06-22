@@ -1,6 +1,7 @@
 const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
 let intervalId;
+stopBtn.disabled = true;
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -16,11 +17,13 @@ function createBackground() {
 function changeBackground() {
   intervalId = setInterval(createBackground, 1000);
   startBtn.disabled = true;
+  stopBtn.disabled = false;
 }
 
 function stopChangeBackground() {
   clearInterval(intervalId);
   startBtn.disabled = false;
+  stopBtn.disabled = true;
 }
 
 startBtn.addEventListener('click', changeBackground);
